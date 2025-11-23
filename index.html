@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전주호성중학교 2학기 2차고사 시계</title>
+    <style>
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        /* 컨테이너 스타일 */
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        /* 제목 스타일 */
+        h1 {
+            color: #1c3d7e;
+            margin-bottom: 30px;
+        }
+        /* 표 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        /* 클릭 가능한 버튼 스타일 */
+        .timer-button {
+            display: block;
+            padding: 15px 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.2s ease-in-out, transform 0.2s;
+            font-size: 16px;
+        }
+        /* 버튼에 마우스를 올렸을 때 스타일 */
+        .timer-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        /* 오늘 날짜 시험 행을 강조하는 스타일 */
+        .today-exam {
+            background-color: #fff3cd; /* 부드러운 노란색 배경 */
+        }
+        .today-exam > th {
+            color: #856404;
+            font-weight: bold;
+        }
+
+        /* --- 응원 메시지 기능 관련 스타일 --- */
+        .cheer-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cheer-button {
+            background-color: #28a745; /* Green color */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .cheer-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .cheer-message-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            min-height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-style: italic;
+            font-size: 15px;
+            line-height: 1.6;
+            border: 1px solid #dee2e6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>전주호성중학교 2학기 2차고사</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>날짜</th>
+                    <th>1학년</th>
+                    <th>2학년</th>
+                    <th>3학년</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 각 tr에 id를 추가하여 JavaScript가 선택할 수 있도록 합니다. -->
+                <tr id="day-12-01">
+                    <th>12월 1일</th>
+                    <td><a href="1201_1.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1201_2.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1201_3.html" class="timer-button">시험 시작</a></td>
+                </tr>
+                <tr id="day-12-02">
+                    <th>12월 2일</th>
+                    <td><a href="1202_1.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1202_2.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1202_3.html" class="timer-button">시험 시작</a></td>
+                </tr>
+                <tr id="day-12-03">
+                    <th>12월 3일</th>
+                    <td><a href="1203_1.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1203_2.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1203_3.html" class="timer-button">시험 시작</a></td>
+                </tr>
+		 <tr id="day-12-04">
+                    <th>12월 4일</th>
+                    <td><a href="1204_1.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1204_2.html" class="timer-button">시험 시작</a></td>
+                    <td><a href="1204_3.html" class="timer-button">시험 시작</a></td>
+
+            </tbody>
+        </table>
+
+        <!-- --- 랜덤 응원 메시지 기능 섹션 --- -->
+        <div class="cheer-section">
+            <button id="cheerButton" class="cheer-button">✨ 행운의 응원 메시지 받기</button>
+            <p id="cheerMessage" class="cheer-message-box">버튼을 눌러 응원의 한마디를 확인해보세요!</p>
+        </div>
+    </div>
+
+    <script>
+        // 오늘 날짜 강조 기능
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+
+            let todayRowId = '';
+
+            if (month === 12 && day === 1) {
+                todayRowId = 'day-12-01';
+            } else if (month === 12 && day === 2) {
+                todayRowId = 'day-12-02';
+            } else if (month === 12 && day === 3) {
+                todayRowId = 'day-12-03';
+ 	    } else if (month === 12 && day === 4) {
+                todayRowId = 'day-12-04';
+
+            }
+
+            if (todayRowId) {
+                const row = document.getElementById(todayRowId);
+                if (row) {
+                    row.classList.add('today-exam');
+                }
+            }
+        });
+
+        // --- 랜덤 응원 메시지 표시 기능 ---
+        const cheerButton = document.getElementById('cheerButton');
+        const cheerMessageBox = document.getElementById('cheerMessage');
+
+        // 미리 준비된 응원 메시지 목록
+        const cheerMessages = [
+            "지금까지 노력한 너 자신을 믿어봐, 분명 좋은 결과가 있을 거야!",
+            "떨지 말고, 풀 수 있는 문제부터 차근차근! 넌 할 수 있어.",
+            "결과도 중요하지만, 최선을 다하는 너의 모습이 가장 멋져!",
+            "하나의 점이 너의 전부를 평가할 순 없어. 편안하게 보고 와!",
+            "찍는 문제마다 정답이 되기를! 행운이 함께할 거야.",
+            "공부하느라 정말 고생 많았어. 마지막까지 힘내자!",
+            "실수만 하지 말자! 아는 문제는 꼭 맞추는 거야."
+        ];
+
+        cheerButton.addEventListener('click', showRandomCheerMessage);
+
+        function showRandomCheerMessage() {
+            // 메시지 목록에서 무작위로 하나를 선택합니다.
+            const randomIndex = Math.floor(Math.random() * cheerMessages.length);
+            const randomMessage = cheerMessages[randomIndex];
+            
+            // 선택된 메시지를 화면에 보여줍니다.
+            cheerMessageBox.textContent = randomMessage;
+        }
+    </script>
+
+</body>
+</html>
+
+
